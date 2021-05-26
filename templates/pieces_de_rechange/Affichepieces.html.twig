@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="eng">
+<head>
+  <meta charset="utf-8">
+</head>
+
+
+{% block body %} 
+   <h2>Liste des Piéces</h2>  
+   <table border ="2" class = "table">  
+      <tr>  
+         
+         <th>ID</th>  
+         <th>Nom</th>  
+         
+         <th>Delete</th>
+         <th>Update</th>
+      </tr>  
+      {% for pieces in PiecesDeRechange %} 
+      <tr>  
+       
+         <td>{{ pieces.id }}</td>   
+         <td>{{ pieces.Nom }}</td>
+         
+         <td><a href="{{ path('deletepieces',{'id':pieces.id}) }}">Delete</a></td> 
+         <td><a href="{{ path('updatepieces',{'id':pieces.id}) }}">Update</a></td> 
+         
+         
+      </tr>  
+      {% endfor %} 
+   </table> 
+{% endblock %}  
+
+</html>

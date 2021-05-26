@@ -1,0 +1,47 @@
+
+<!doctype html>
+
+<html lang="eng">
+<head>
+  <meta charset="utf-8">
+</head>
+
+
+{% block body %} 
+   <h2>Liste des matériels</h2>  
+   <table border ="2" class = "table">  
+      <tr>  
+         
+         <th>ID</th>  
+         <th>Unité</th>
+         <th>Inventaire</th>
+         <th>Type</th>  
+         <th>Date D'affectation</th>
+         <th>Affectation</th>   
+         <th>Etat</th> 
+         <th>Intervention</th>
+         <th>Bon de commande</th>
+         <th>Delete</th> 
+         <th>Update</th>    
+         
+      </tr>  
+      {% for m in Materiel %} 
+      <tr>  
+      
+         <td>{{ m.id }}</td>  
+         <td>{{ m.unite.name }}</td>
+         <td>{{ m.inventaire.id}}
+         <td>{{ m.type }}</td>
+         <td>{{ m.date_dacquisition }}</td>  
+         <td>{{ m.affectation }}</td>   
+         <td>{{ m.etat }}</td> 
+         <td>{{ m.intervention.id }}</td>
+         <td>{{ m.bondecommande.numbc }}</td>
+         <td><a href="{{ path('deletemateriel',{'id':m.id}) }}">Delete</a></td> 
+         <td><a href="{{ path('updatemateriel',{'id':m.id}) }}">Update</a></td> 
+      </tr>  
+      {% endfor %} 
+   </table> 
+{% endblock %}  
+
+</html>

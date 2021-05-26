@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="eng">
+<head>
+  <meta charset="utf-8">
+</head>
+
+
+{% block body %} 
+   <h2>Liste des Interventions</h2>  
+   <table border ="2" class = "table">  
+      <tr>  
+        
+         <th>ID</th>  
+         <th>Type</th>  
+         <th>Date</th> 
+         <th>Nombre Piéces de rechange</th>   
+         <th>Liste Piéces de rechange</th>  
+         <th>Delete</th>
+         <th>Update</th>
+      </tr>  
+      {% for inter in Intervention %} 
+      <tr>  
+    
+         <td>{{ inter.id }}</td>   
+         <td>{{ inter.type }}</td>
+         <td>{{ inter.date }}</td>  
+         <td>{{ inter.nombrepr }}</td>  
+         <td>{{ inter.piecesderechange.id}}
+         <td><a href="{{ path('deleteintervention',{'id':inter.id}) }}">Delete</a></td> 
+         <td><a href="{{ path('updateintervention',{'id':inter.id}) }}">Update</a></td> 
+         
+         
+      </tr>  
+      {% endfor %} 
+   </table> 
+{% endblock %}  
+
+</html>

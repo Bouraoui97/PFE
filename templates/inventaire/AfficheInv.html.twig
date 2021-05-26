@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="eng">
+<head>
+  <meta charset="utf-8">
+</head>
+
+
+{% block body %} 
+   <h2>Liste des inventaires</h2>  
+   <table border ="2" class = "table">  
+      <tr>  
+         <th>ID</th>
+         <th>Unite</th>  
+         
+         <th>Delete</th> 
+         <th>Update</th>    
+         
+      </tr>  
+      {% for inv in Inventaire %} 
+      <tr>  
+       
+         <td>{{ inv.id }}</td>
+         <td>{{ inv.Unite.name}} 
+         
+         <td><a href="{{ path('deleteinventaire',{'id':inv.id}) }}">Delete</a></td> 
+         <td><a href="{{ path('updateinventaire',{'id':inv.id}) }}">Update</a></td> 
+      </tr>  
+      {% endfor %} 
+   </table> 
+{% endblock %}  
+
+</html>
